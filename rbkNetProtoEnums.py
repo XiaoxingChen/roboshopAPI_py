@@ -14,6 +14,7 @@ robot_status_mode_req = 1003
 robot_status_loc_req = 1004
 robot_status_speed_req = 1005
 robot_status_area_req = 1011
+robot_status_all1_req = 1100
 
 robot_control_reloc_req = 2002
 robot_control_motion_req = 2010
@@ -28,7 +29,8 @@ def packMsg(reqId, msgTyp, msg = {}):
     if(msg != {}):
         msgLen = len(jsonStr)
     rawMsg = struct.pack(PACK_HEAD_FMT_STR, 0x5A, 1, reqId, msgLen, msgTyp, PACK_RSV_DATA)
-    rawMsg += bytearray(json.dumps(msg), 'ascii')
+    if(msg != {}):
+        rawMsg += bytearray(json.dumps(msg), 'ascii')
     return rawMsg
 
 def unpackHead(data):
