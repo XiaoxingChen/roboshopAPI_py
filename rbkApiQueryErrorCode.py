@@ -9,7 +9,7 @@ so = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 so.connect(('127.0.0.1', API_PORT_STATE))
 
 
-so.send(packMsg(1, robot_status_info_req, {}))
+so.send(packMsg(1, robot_status_alarm_res, {}))
 data = so.recv(16)
 jsonDataLen = 0
 if(len(data) < 16):

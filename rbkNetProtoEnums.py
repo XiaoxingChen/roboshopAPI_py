@@ -15,23 +15,28 @@ robot_status_loc_req = 1004
 robot_status_speed_req = 1005
 robot_status_area_req = 1011
 robot_status_all1_req = 1100
+robot_status_alarm_res = 1050
 
 robot_control_reloc_req = 2002
 robot_control_motion_req = 2010
 
 
-PACK_HEAD_FMT_STR = '!BBHLH6s' #0x5A + Version + serierNum + jsonLen + reqNum + rsv
+# 0x5A + Version + serierNum + jsonLen + reqNum + rsv
+PACK_HEAD_FMT_STR = '!BBHLH6s'
 PACK_RSV_DATA = b'\x00\x00\x00\x00\x00\x00'
 
-def packMsg(reqId, msgTyp, msg = {}):
+
+def packMsg(reqId, msgTyp, msg={}):
     msgLen = 0
     jsonStr = json.dumps(msg)
     if(msg != {}):
         msgLen = len(jsonStr)
-    rawMsg = struct.pack(PACK_HEAD_FMT_STR, 0x5A, 1, reqId, msgLen, msgTyp, PACK_RSV_DATA)
+    rawMsg = struct.pack(PACK_HEAD_FMT_STR, 0x5A, 1, reqId,
+                         msgLen, msgTyp, PACK_RSV_DATA)
     if(msg != {}):
         rawMsg += bytearray(json.dumps(msg), 'ascii')
     return rawMsg
+
 
 def unpackHead(data):
     result = struct.unpack(PACK_HEAD_FMT_STR, data)
