@@ -27,7 +27,7 @@ def checkNtpLossWarning():
     # print(ret)
     warningdict = ret['warnings']
     findNtpLossWarning = False
-    print(warningdict)
+    # print(warningdict)
     for d in warningdict:
         if('54005' in d):
             findNtpLossWarning = True
@@ -47,6 +47,8 @@ while cnt > 0:
     cnt = cnt - 1
     print('wait %d seconds to check warning' % cnt)
     time.sleep(1)
+    if checkNtpLossWarning():
+        break
 
 if checkNtpLossWarning():
     print('NTP cut test passed...')
