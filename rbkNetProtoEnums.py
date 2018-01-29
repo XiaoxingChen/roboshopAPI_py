@@ -15,11 +15,14 @@ robot_status_loc_req = 1004
 robot_status_speed_req = 1005
 robot_status_area_req = 1011
 robot_status_io_res = 1013
+robot_status_task_req = 1020
 robot_status_all1_req = 1100
 robot_status_alarm_res = 1050
 
 robot_control_reloc_req = 2002
 robot_control_motion_req = 2010
+
+robot_task_gotarget_req = 3051
 
 
 # 0x5A + Version + serierNum + jsonLen + reqNum + rsv
