@@ -1,6 +1,7 @@
 import json
 import struct
 
+API_PORT_ROBOD = 19200
 API_PORT_STATE = 19204
 API_PORT_CTRL = 19205
 API_PORT_TASK = 19206
@@ -23,6 +24,10 @@ robot_control_reloc_req = 2002
 robot_control_motion_req = 2010
 
 robot_task_gotarget_req = 3051
+
+robot_daemon_ls_req = 5100
+robot_daemon_scp_req = 5101
+robot_daemon_rm_req = 5102
 
 
 # 0x5A + Version + serierNum + jsonLen + reqNum + rsv

@@ -10,13 +10,8 @@ import time
 import sys
 
 
-preliftpoint = 'LM7'
-liftpoint = 'LM6'
-releasepoint = 'LM8'
-afterreleasepoint = 'LM12'
-
-prepoint = ['LM7', 'LM12']
-workpoint = ['LM6', 'LM8']
+prepoint = ['LM3', 'LM4']
+workpoint = ['LM1', 'LM2']
 
 
 class ZowellApi(object):
