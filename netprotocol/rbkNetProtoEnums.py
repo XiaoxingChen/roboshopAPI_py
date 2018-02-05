@@ -29,6 +29,8 @@ robot_daemon_ls_req = 5100
 robot_daemon_scp_req = 5101
 robot_daemon_rm_req = 5102
 
+robot_other_setdo_req = 6001
+
 
 # 0x5A + Version + serierNum + jsonLen + reqNum + rsv
 PACK_HEAD_FMT_STR = '!BBHLH6s'
