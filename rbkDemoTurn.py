@@ -5,13 +5,13 @@ import socket
 import os
 
 so = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-so.connect(('192.168.4.231', API_PORT_CTRL))
+so.connect(('192.168.4.136', API_PORT_CTRL))
 # so.connect(('127.0.0.1', API_PORT_STATE))
 so.settimeout(5)
 
 
 
-so.send(packMsg(1, robot_control_motion_req, {"vx":0.00, "vy": 0.0, "w": -0.0}))
+so.send(packMsg(1, robot_control_motion_req, {"vx":0.00, "vy": 0.0, "w": 2.5}))
 try:
     data = so.recv(16)
 except socket.timeout:

@@ -7,14 +7,14 @@ import time
 
 so = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 #ip address of RBK!
-so.connect(('192.168.192.5', API_PORT_CTRL))
+so.connect(('192.168.4.136', API_PORT_CTRL))
 # so.connect(('127.0.0.1', API_PORT_STATE))
 so.settimeout(5)
 
-jCmd = {"vx":0.0, "vy": 0.0, "w": 0.3}
+jCmd = {"vx":0.0, "vy": 0.0, "w": 0.5}
 
 while(True):
-    time.sleep(1)
+    time.sleep(0.5)
     jCmd['w'] = jCmd['w'] * -1.0
     so.send(packMsg(1, robot_control_motion_req, jCmd))
     try:
