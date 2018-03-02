@@ -1,4 +1,4 @@
-# Robokit Netprotocl API
+# Robokit Netprotocol API
 Python codes for Robokit Netprotocol Application Interface.
 
 # Table of Contents
@@ -13,7 +13,7 @@ Python codes for Robokit Netprotocol Application Interface.
 
 # Requirements
 
-- Python 3.6.x
+- Python 3.x
 
 # Reference
 [Robokit Netprotocol 1.4.2 by PDF](http://static.seer-robotics.com/robotkit-netprotocol-l-1.4.2.pdf)
