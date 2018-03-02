@@ -1,5 +1,5 @@
 # Robokit Netprotocl API
-Python codes for Robokit Netprotocol Application interface.
+Python codes for Robokit Netprotocol Application Interface.
 
 # Table of Contents
 
