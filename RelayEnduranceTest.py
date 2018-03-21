@@ -5,9 +5,14 @@ import os
 from time import sleep
 
 so = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+<<<<<<< HEAD
 so.settimeout(3)
 so.connect(('192.168.4.235', API_PORT_OTHER))
 # so.connect(('192.168.137.1', API_PORT_OTHER))
+=======
+so.settimeout(2)
+so.connect(('192.168.4.235', API_PORT_STATE))
+>>>>>>> c9c0f79bd63194350c093f6b46d143df9e82cb37
 # so.connect(('192.168.192.5', API_PORT_OTHER))
 
 ELECTRODE_DO_POS = 15

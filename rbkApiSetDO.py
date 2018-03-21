@@ -20,6 +20,7 @@ if(len(data) < 16):
     quit()
 else:
     jsonDataLen = unpackHead(data)[0]
+    print([hex(v) for v in data])
 
 if(jsonDataLen > 0):
     data = so.recv(1024)
