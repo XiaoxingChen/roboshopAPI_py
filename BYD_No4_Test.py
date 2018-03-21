@@ -34,7 +34,7 @@ class BYDApi(object):
         self._so_task.send(
             packMsg(1, robot_task_gotarget_req, {"id": landmark}))
 
-    def reachtarget(self):
+    def reachtarget(self, landmark):
         COMPLETED = 4
         FAILED = 5
         self._so_state.send(packMsg(1, robot_status_task_req, {}))
@@ -55,23 +55,24 @@ class BYDApi(object):
         try:
             ret = json.loads(data)
         except:
-            print('load back date to json error' + data)
+            print('load back date to json error' + str(data))
             return False
 
-        if(ret['task_status'] is COMPLETED):
+        if(ret['task_status'] is COMPLETED and ret['target_id'] == landmark):
             return True
         if(ret['task_status'] is FAILED):
             print('Reach target failed, give up')
             return True
         else:
-            print('[' + time.ctime()[11:19] + '] ' + str(ret))
+            print('[' + time.ctime()[11:19] + '] ' + str(ret) + '; target:' + landmark)
             return False
 
     def gotargetblock(self, point):
         demo.gotarget(point)
         time.sleep(0.5)
-        while demo.reachtarget() is not True:
+        while demo.reachtarget(point) is not True:
             time.sleep(0.5)
+        print('Reach target: ' + point)
 
 
 demo = BYDApi()
@@ -81,6 +82,7 @@ demo = BYDApi()
 while True:
 
     demo.gotargetblock(landmark1)
+    time.sleep(3)
 
     demo.gotargetblock(landmark2)
 
